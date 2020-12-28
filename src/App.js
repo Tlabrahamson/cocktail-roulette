@@ -3,7 +3,6 @@ import axios from "axios";
 import "./styles.css";
 // Images
 import logo from "./assets/logo.png";
-// import bricks from "./assets/bricks.png";
 
 function App() {
   const [drink, setDrink] = useState([]);
@@ -36,32 +35,34 @@ function App() {
   };
 
   return (
-    <main>
+    <>
       <header>
         <img src={logo} alt="Cocktail Roulette" />
       </header>
-
-      <article>
-        <h2>Let's Mix It Up.</h2>
-        <p>
-          Cocktail Roulette is a game of chance. Roll a random cocktail and try
-          something new for a change! I hope you have a bunch of liquor on hand!
-        </p>
-        <button onClick={handleGetDrink}>Mix it up</button>
-      </article>
-
-      <div className="drink-card">
+      <main>
         <article>
-          <img src={drinkImage} alt="" />
-          <div>
-            <h2>{drinkName}</h2>
-            <p>Best served in a {glass}</p>
-
-            <p>{instructions}</p>
-          </div>
+          <h2>Let's Mix It Up.</h2>
+          <p>
+            Cocktail Roulette is a game of chance. Roll a random cocktail and
+            try something new for a change! I hope you have a bunch of liquor on
+            hand!
+          </p>
+          <button onClick={handleGetDrink}>Mix it up</button>
         </article>
-      </div>
-    </main>
+
+        <div className="drink-card">
+          <article>
+            <img className="rounded-2xl" src={drinkImage} alt="" />
+            <div>
+              <h2>{drinkName}</h2>
+              <p>Best served in a {glass}</p>
+
+              <p>{instructions}</p>
+            </div>
+          </article>
+        </div>
+      </main>
+    </>
   );
 }
 

@@ -39,10 +39,10 @@ function App() {
       <header>
         <img src={logo} alt="Cocktail Roulette" />
       </header>
-      <main>
-        <article>
+      <main className="flex flex-col justify-between items-center md:flex-row">
+        <article className="container">
           <h2>Let's Mix It Up.</h2>
-          <p>
+          <p className="py-4">
             Cocktail Roulette is a game of chance. Roll a random cocktail and
             try something new for a change! I hope you have a bunch of liquor on
             hand!
@@ -50,9 +50,13 @@ function App() {
           <button onClick={handleGetDrink}>Mix it up</button>
         </article>
 
-        <div className="drink-card">
-          <article>
-            <img className="rounded-2xl" src={drinkImage} alt="" />
+        <div className="container drink-card">
+          <article className="flex flex-col items-center md:flex-row">
+            <img
+              className="rounded-2xl object-contain max-w-md"
+              src={drinkImage}
+              alt=""
+            />
             <div>
               <h2>{drinkName}</h2>
               <p>Best served in a {glass}</p>

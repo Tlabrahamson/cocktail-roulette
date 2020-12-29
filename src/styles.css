@@ -5,7 +5,7 @@
 }
 
 html {
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #0c0211;
   background-image: radial-gradient(
       50% 50% at 50% 50%,
@@ -65,8 +65,6 @@ button {
 
 .drink-card-glow {
   position: relative;
-  width: 101%;
-  height: 103%;
   z-index: -1;
   border: solid 6px #fbfefa;
   border-radius: 12px;

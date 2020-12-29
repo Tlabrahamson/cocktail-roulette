@@ -9,17 +9,11 @@ function App() {
   const drinkName = drink.strDrink;
   const glass = drink.strGlass;
   const instructions = drink.strInstructions;
-  // const firstIngredient = drink.strMeasure1 + drink.strIngredient1;
 
-  /* 
-    Need to loop over the drink object to pull all of the strMeasue
-    and strIngredient values.
-  */
+  // Creates an array of the values from the drink object
   const measure = Object.entries(drink).map(([key, value]) => {
     return value !== null ? drink[key] : "";
   });
-
-  console.log(measure);
 
   const handleGetDrink = async () => {
     try {
@@ -59,8 +53,37 @@ function App() {
               />
               <div>
                 <h2>{drinkName}</h2>
+                <div className="flex justify-between py-4">
+                  <ul>
+                    {/* 
+                      This maps over the measure array from above and grabs the data from the index range 36-52. If there is no data, it returns nothing.
+                    */}
+                    {measure.map((measure, index) =>
+                      index >= 36 && index <= 52 && index !== "" ? (
+                        <div key={index}>
+                          <li>{measure}</li>
+                        </div>
+                      ) : (
+                        ""
+                      )
+                    )}
+                  </ul>
+                  {/* 
+                      Same thing as above but grabs the ingredients instead of the measurements.
+                  */}
+                  <ul>
+                    {measure.map((measure, index) =>
+                      index >= 21 && index <= 35 && index !== "" ? (
+                        <div key={index}>
+                          <li>{measure}</li>
+                        </div>
+                      ) : (
+                        ""
+                      )
+                    )}
+                  </ul>
+                </div>
                 <p>{glass}</p>
-
                 <p>{instructions}</p>
               </div>
             </article>

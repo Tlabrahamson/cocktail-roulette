@@ -26,8 +26,8 @@ function App() {
     // handleGetDrink();
   }, []);
 
-  const handleGetDrink = () => {
-    axios
+  const handleGetDrink = async () => {
+    await axios
       .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       .then(response => {
         setDrink(response.data.drinks[0]);
@@ -35,12 +35,12 @@ function App() {
   };
 
   return (
-    <>
-      <header>
+    <div>
+      <header className="py-8 flex justify-center align-center md:px-16 lg:justify-start lg:px-32">
         <img src={logo} alt="Cocktail Roulette" />
       </header>
-      <main className="flex flex-col justify-between items-center md:flex-row">
-        <article className="container">
+      <main className="px-4 flex h-full flex-col items-center lg:flex-row lg:px-32 lg:justify-between">
+        <article className="pb-8">
           <h2>Let's Mix It Up.</h2>
           <p className="py-4">
             Cocktail Roulette is a game of chance. Roll a random cocktail and
@@ -50,10 +50,11 @@ function App() {
           <button onClick={handleGetDrink}>Mix it up</button>
         </article>
 
-        <div className="container drink-card">
-          <article className="flex flex-col items-center md:flex-row">
+        <div className="drink-card-glow">
+          <div className="drink-card max-w-screen-lg max-h-861px w-full h-full"></div>
+          <article className="p-4 flex flex-col items-center md:flex-row">
             <img
-              className="rounded-2xl object-contain max-w-md"
+              className="rounded-2xl object-contain max-w-md w-full md:mr-4"
               src={drinkImage}
               alt=""
             />
@@ -66,7 +67,7 @@ function App() {
           </article>
         </div>
       </main>
-    </>
+    </div>
   );
 }
 

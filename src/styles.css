@@ -5,7 +5,7 @@
 }
 
 html {
-  /* overflow: hidden; */
+  overflow: hidden;
   background: #0c0211;
   background-image: radial-gradient(
       50% 50% at 50% 50%,
@@ -81,4 +81,10 @@ button {
   border: solid 20px #7c33b2;
   filter: blur(30px);
   border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    overflow: initial;
+  }
 }

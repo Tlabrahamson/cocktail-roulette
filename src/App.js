@@ -1,9 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./styles.css";
 import logo from "./assets/logo.png";
 
 function App() {
+  // I'd like to try to animate the incoming drink data with a fade-in/out or something.
+  AOS.init();
   const [drink, setDrink] = useState([]);
   const drinkImage = drink.strDrinkThumb;
   const drinkName = drink.strDrink;
@@ -30,10 +34,13 @@ function App() {
   return (
     <div className="h-screen">
       <header className="flex py-8 justify-center align-center md:px-16 lg:justify-start lg:px-32">
-        <img src={logo} alt="Cocktail Roulette" />
+        <img data-aos="zoom-in-right" src={logo} alt="Cocktail Roulette" />
       </header>
       <main className="px-4 flex h-full flex-col items-center lg:flex-row lg:px-32 lg:justify-between lg:-mt-32">
-        <article className="pb-8 max-w-xs lg:mr-24 2xl:mr-48">
+        <article
+          data-aos="fade-in"
+          className="pb-8 lg:max-w-xs lg:mr-24 2xl:mr-48"
+        >
           <h2>Let's Mix It Up.</h2>
           <p className="py-4">
             Cocktail Roulette is a game of chance. Roll a random cocktail and
@@ -44,22 +51,22 @@ function App() {
         </article>
 
         <div className="w-full h-4/5 drink-card-glow">
-          <div className="drink-card w-full h-full flex">
-            <article className="p-4 flex flex-col items-center md:flex-row lg:max-w-3xl">
+          <div className="drink-card w-full h-full flex justify-center p-4">
+            <article className="flex flex-col items-start md:flex-col lg:max-w-3xl 2xl:flex-row 2xl:items-center">
               <img
                 className="rounded-2xl object-contain max-w-xs w-full md:mr-4"
                 src={drinkImage}
                 alt=""
               />
-              <div>
+              <div className="w-full">
                 <h2>{drinkName}</h2>
-                <div className="flex justify-between py-4">
+                <div className="flex justify-between py-4 w-56">
                   <ul>
                     {/* 
                       This maps over the measure array from above and grabs the data from the index range 36-52. If there is no data, it returns nothing.
                     */}
                     {measure.map((measure, index) =>
-                      index >= 36 && index <= 52 && index !== "" ? (
+                      index >= 36 && index <= 50 && index !== "" ? (
                         <div key={index}>
                           <li>{measure}</li>
                         </div>

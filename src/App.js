@@ -11,7 +11,7 @@ function App() {
   const [drink, setDrink] = useState([]);
   const drinkImage = drink.strDrinkThumb;
   const drinkName = drink.strDrink;
-  const glass = drink.strGlass;
+  // const glass = drink.strGlass;
   const instructions = drink.strInstructions;
 
   // Creates an array of the values from the drink object
@@ -50,15 +50,15 @@ function App() {
           <button onClick={handleGetDrink}>Mix it up</button>
         </article>
 
-        <div className="w-full h-4/5 drink-card-glow">
-          <div className="drink-card w-full h-full flex justify-center p-4">
-            <article className="flex flex-col items-start md:flex-col lg:max-w-3xl 2xl:flex-row 2xl:items-center">
+        <div className="w-full h-full drink-card-glow lg:h-2/3 2xl:h-4/5">
+          <div className="drink-card w-full h-full flex justify-center items-center p-4">
+            <article className="drink-card-inner grid grid-cols-1 col-auto gap-4 items-center lg:max-w-3xl 2xl:gap-12">
               <img
-                className="rounded-2xl object-contain max-w-xs w-full md:mr-4"
+                className="rounded-2xl max-w-screen-sm w-full drink-image"
                 src={drinkImage}
                 alt=""
               />
-              <div className="w-full">
+              <div className="w-full col-span-2 lg:col-span-1">
                 <h2>{drinkName}</h2>
                 <div className="flex justify-between py-4 w-56">
                   <ul>
@@ -90,7 +90,8 @@ function App() {
                     )}
                   </ul>
                 </div>
-                <p>{glass}</p>
+              </div>
+              <div className="lg:col-span-2">
                 <p>{instructions}</p>
               </div>
             </article>

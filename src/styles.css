@@ -83,7 +83,18 @@ button {
   border-radius: 12px;
 }
 
-@media screen and (max-width: 768px) {
+.drink-image {
+  max-width: 400px;
+  min-width: 200px;
+}
+
+@media screen and (max-width: 1178px) {
+  .drink-card-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   html {
     overflow: initial;
   }

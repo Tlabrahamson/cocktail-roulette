@@ -1,6 +1,6 @@
 # Cocktail Roulette
 
-https://cocktail-roulette.netlify.app/
+Live site -> https://cocktail-roulette.netlify.app/
 
 ![Cocktail Roulette](https://github.com/Tlabrahamson/cocktail-roulette/blob/main/src/assets/cocktail-roulette.jpg)
 

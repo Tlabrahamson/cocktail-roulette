@@ -9,9 +9,10 @@ function App() {
   // I'd like to try to animate the incoming drink data with a fade-in/out or something.
   AOS.init();
   const [drink, setDrink] = useState([]);
+  const [loading, setLoading] = useState(true);
   const drinkImage = drink.strDrinkThumb;
   const drinkName = drink.strDrink;
-  // const glass = drink.strGlass;
+  const glass = drink.strGlass;
   const instructions = drink.strInstructions;
 
   // Creates an array of the values from the drink object
@@ -20,16 +21,20 @@ function App() {
   });
 
   const handleGetDrink = async () => {
+    setLoading(true);
     try {
       await axios
         .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         .then(response => {
+          setLoading(false);
           setDrink(response.data.drinks[0]);
         });
     } catch (err) {
       console.log(err);
     }
   };
+
+  console.log(drink);
 
   return (
     <div className="h-screen">
@@ -49,52 +54,61 @@ function App() {
           </p>
           <button onClick={handleGetDrink}>Mix it up</button>
         </article>
-
         <div className="w-full h-full drink-card-glow lg:h-2/3 2xl:h-4/5">
           <div className="drink-card w-full h-full flex justify-center items-center p-4">
-            <article className="drink-card-inner grid grid-cols-1 col-auto gap-4 items-center lg:max-w-3xl 2xl:gap-12">
-              <img
-                className="rounded-2xl max-w-screen-sm w-full drink-image"
-                src={drinkImage}
-                alt=""
-              />
-              <div className="w-full col-span-2 lg:col-span-1">
-                <h2>{drinkName}</h2>
-                <div className="flex justify-between py-4 w-56">
-                  <ul>
-                    {/* 
+            {loading === false ? (
+              <article
+                data-aos="fade-in"
+                data-aos-delay="300"
+                data-aos-duration="1000"
+                className="drink-card-inner grid grid-cols-1 col-auto gap-4 items-center lg:max-w-3xl 2xl:gap-12"
+              >
+                <img
+                  className="rounded-2xl max-w-screen-sm w-full drink-image"
+                  src={drinkImage}
+                  alt=""
+                />
+                <div className="w-full col-span-2 lg:col-span-1">
+                  <h2>{drinkName}</h2>
+                  <div className="flex justify-between py-4 w-56">
+                    <ul>
+                      {/* 
                       This maps over the measure array from above and grabs the data from the index range 36-52. If there is no data, it returns nothing.
                     */}
-                    {measure.map((measure, index) =>
-                      index >= 36 && index <= 50 && index !== "" ? (
-                        <div key={index}>
-                          <li>{measure}</li>
-                        </div>
-                      ) : (
-                        ""
-                      )
-                    )}
-                  </ul>
-                  {/* 
+                      {measure.map((measure, index) =>
+                        index >= 36 && index <= 50 && index !== "" ? (
+                          <div key={index}>
+                            <li>{measure}</li>
+                          </div>
+                        ) : (
+                          ""
+                        )
+                      )}
+                    </ul>
+                    {/* 
                       Same thing as above but grabs the ingredients instead of the measurements.
                   */}
-                  <ul>
-                    {measure.map((measure, index) =>
-                      index >= 21 && index <= 35 && index !== "" ? (
-                        <div key={index}>
-                          <li>{measure}</li>
-                        </div>
-                      ) : (
-                        ""
-                      )
-                    )}
-                  </ul>
+                    <ul>
+                      {measure.map((measure, index) =>
+                        index >= 21 && index <= 35 && index !== "" ? (
+                          <div key={index}>
+                            <li>{measure}</li>
+                          </div>
+                        ) : (
+                          ""
+                        )
+                      )}
+                    </ul>
+                  </div>
+                  <p className="text-sm italic">Best served in a {glass}</p>
                 </div>
-              </div>
-              <div className="lg:col-span-2">
-                <p>{instructions}</p>
-              </div>
-            </article>
+                <div className="lg:col-span-2">
+                  <p>{instructions}</p>
+                </div>
+              </article>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </main>

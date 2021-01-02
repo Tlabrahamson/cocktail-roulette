@@ -52,6 +52,17 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #6f2782;
+  border: 2px solid #de83f8;
+}
+
+button:active {
+  background: #531d61;
+  border: 2px solid #f1bdff;
 }
 
 .drink-card {
@@ -97,5 +108,7 @@ button {
 @media screen and (max-width: 1024px) {
   html {
     overflow: initial;
+    overflow-x: hidden;
+    background-repeat: initial;
   }
 }

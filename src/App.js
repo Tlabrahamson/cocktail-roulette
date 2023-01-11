@@ -76,13 +76,14 @@ function App() {
                       This maps over the measure array from above and grabs the data from the index range 36-52. If there is no data, it returns nothing.
                     */}
                       {measure.map((measure, index) =>
-                        index >= 36 && index <= 50 && index !== "" ? (
+                        index >= 32 && index <= 47 && index !== "" ? (
                           <div key={index}>
                             <li>{measure}</li>
                           </div>
                         ) : (
                           ""
                         )
+                        // console.log(index, measure)
                       )}
                     </ul>
                     {/* 
@@ -90,7 +91,7 @@ function App() {
                   */}
                     <ul>
                       {measure.map((measure, index) =>
-                        index >= 21 && index <= 35 && index !== "" ? (
+                        index >= 17 && index <= 32 && index !== "" ? (
                           <div key={index}>
                             <li>{measure}</li>
                           </div>

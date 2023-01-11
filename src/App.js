@@ -49,8 +49,7 @@ function App() {
           <h2>Let's Mix It Up.</h2>
           <p className="py-4">
             Cocktail Roulette is a game of chance. Roll a random cocktail and
-            try something new for a change! I hope you have a bunch of liquor on
-            hand!
+            try something new for a change!
           </p>
           <button onClick={handleGetDrink}>Mix it up</button>
         </article>
@@ -73,7 +72,7 @@ function App() {
                   <div className="flex justify-between py-4 w-56">
                     <ul>
                       {/* 
-                      This maps over the measure array from above and grabs the data from the index range 36-52. If there is no data, it returns nothing.
+                      This maps over the measure array from above and grabs the data from the index range 32-47. If there is no data, it returns nothing.
                     */}
                       {measure.map((measure, index) =>
                         index >= 32 && index <= 47 && index !== "" ? (
@@ -91,7 +90,7 @@ function App() {
                   */}
                     <ul>
                       {measure.map((measure, index) =>
-                        index >= 17 && index <= 32 && index !== "" ? (
+                        index >= 17 && index <= 31 && index !== "" ? (
                           <div key={index}>
                             <li>{measure}</li>
                           </div>

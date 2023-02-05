@@ -61,7 +61,7 @@ function App() {
                 data-aos-delay="300"
                 data-aos-duration="1000"
                 className="drink-card-inner grid grid-cols-1 col-auto gap-4 items-center lg:max-w-3xl 2xl:gap-12"
-              >
+              > 
                 <img
                   className="rounded-2xl max-w-screen-sm w-full drink-image"
                   src={drinkImage}

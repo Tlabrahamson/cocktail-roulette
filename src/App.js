@@ -16,9 +16,9 @@ function App() {
   const instructions = drink.strInstructions;
 
   // Creates an array of the values from the drink object
-  const measure = Object.entries(drink).map(([key, value]) => {
-    return value !== null ? drink[key] : "";
-  });
+  // const measure = Object.entries(drink).map(([key, value]) => {
+  //   return value !== null ? drink[key] : "";
+  // });
 
   const handleGetDrink = async () => {
     setLoading(true);
@@ -69,35 +69,42 @@ function App() {
                 />
                 <div className="w-full col-span-2 lg:col-span-1">
                   <h2>{drinkName}</h2>
-                  <div className="flex justify-between py-4 w-56">
+                  <div className="flex justify-between py-4 w-60">
                     <ul>
-                      {/* 
-                      This maps over the measure array from above and grabs the data from the index range 32-47. If there is no data, it returns nothing.
-                    */}
-                      {measure.map((measure, index) =>
-                        index >= 32 && index <= 47 && index !== "" ? (
-                          <div key={index}>
-                            <li>{measure}</li>
-                          </div>
-                        ) : (
-                          ""
-                        )
-                        // console.log(index, measure)
-                      )}
+                      {drink.strMeasure1 && <li>{drink.strMeasure1}</li>}
+                      {drink.strMeasure2 && <li>{drink.strMeasure2}</li>}
+                      {drink.strMeasure3 && <li>{drink.strMeasure3}</li>}
+                      {drink.strMeasure4 && <li>{drink.strMeasure4}</li>}
+                      {drink.strMeasure5 && <li>{drink.strMeasure5}</li>}
+                      {drink.strMeasure6 && <li>{drink.strMeasure6}</li>}
+                      {drink.strMeasure7 && <li>{drink.strMeasure7}</li>}
+                      {drink.strMeasure8 && <li>{drink.strMeasure8}</li>}
+                      {drink.strMeasure9 && <li>{drink.strMeasure9}</li>}
+                      {drink.strMeasure10 && <li>{drink.strMeasure10}</li>}
+                      {drink.strMeasure11 && <li>{drink.strMeasure11}</li>}
+                      {drink.strMeasure12 && <li>{drink.strMeasure12}</li>}
+                      {drink.strMeasure13 && <li>{drink.strMeasure13}</li>}
+                      {drink.strMeasure14 && <li>{drink.strMeasure14}</li>}
+                      {drink.strMeasure15 && <li>{drink.strMeasure15}</li>}
+
                     </ul>
-                    {/* 
-                      Same thing as above but grabs the ingredients instead of the measurements.
-                  */}
+                    
                     <ul>
-                      {measure.map((measure, index) =>
-                        index >= 17 && index <= 31 && index !== "" ? (
-                          <div key={index}>
-                            <li>{measure}</li>
-                          </div>
-                        ) : (
-                          ""
-                        )
-                      )}
+                      {drink.strIngredient1 && <li>{drink.strIngredient1}</li>}
+                      {drink.strIngredient2 && <li>{drink.strIngredient2}</li>}
+                      {drink.strIngredient3 && <li>{drink.strIngredient3}</li>}
+                      {drink.strIngredient4 && <li>{drink.strIngredient4}</li>}
+                      {drink.strIngredient5 && <li>{drink.strIngredient5}</li>}
+                      {drink.strIngredient6 && <li>{drink.strIngredient6}</li>}
+                      {drink.strIngredient7 && <li>{drink.strIngredient7}</li>}
+                      {drink.strIngredient8 && <li>{drink.strIngredient8}</li>}
+                      {drink.strIngredient9 && <li>{drink.strIngredient9}</li>}
+                      {drink.strIngredient10 && <li>{drink.strIngredient10}</li>}
+                      {drink.strIngredient11 && <li>{drink.strIngredient11}</li>}
+                      {drink.strIngredient12 && <li>{drink.strIngredient12}</li>}
+                      {drink.strIngredient13 && <li>{drink.strIngredient13}</li>}
+                      {drink.strIngredient14 && <li>{drink.strIngredient14}</li>}
+                      {drink.strIngredient15 && <li>{drink.strIngredient15}</li>}
                     </ul>
                   </div>
                   <p className="text-sm italic">Best served in a {glass}</p>
